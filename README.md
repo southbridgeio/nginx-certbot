@@ -17,10 +17,10 @@ include letsencrypt.conf;
 docker-entrypoin.sh scan all *.conf file in /etc/nginx/conf.d/ and get letsencrypt certificate for new domain, and renew for existings
 
 env variable:
-`
+```
 EMAIL=test@test.net ## email for letsencrypt account
 DRY_RUN=1           ## get test/staged certficiate from letsencrypt
-`
+```
 example with volume
 
 docker build . --tag nginx-certbot
