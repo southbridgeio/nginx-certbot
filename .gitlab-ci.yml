@@ -6,9 +6,4 @@ Build docker image:
     - docker
   stage: build_docker_images
   script:
-    - I=$(git describe --tags)
-    - [ -z "$I" ] && I=0.0.1
-    - docker build . --tag centosadmin/nginx-certbot:latest --tag "centosadmin/nginx-certbot:$I"
-    - docker login -u "$docker_hub_login" -p "$docker_hub_password"
-    - docker push centosadmin/nginx-certbot:latest
-    - docker push "centosadmin/nginx-certbot:$I"
+    - .ci/docker-build.sh
