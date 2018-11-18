@@ -16,8 +16,8 @@ for d in /etc/letsencrypt/live/*; do
   cert=$(basename "$d")
   echo "Create/update sertificate for: $cert"
   [ ! -d "/etc/letsencrypt/archive/$cert" ] && rm -rf "/etc/letsencrypt/live/$cert"
-  certbot certonly --noninteractive --no-self-upgrade --webroot --webroot-path /var/www/letsencrypt \
-            --agree-tos $email_opt -d "${cert}"  --renew-with-new-domains "${test_cert_opt}"
+echo "certbot certonly --noninteractive --no-self-upgrade --webroot --webroot-path /var/www/letsencrypt --agree-tos $email_opt   --renew-with-new-domains ${test_cert_opt} -d ${cert}"
+  certbot certonly --noninteractive --no-self-upgrade --webroot --webroot-path /var/www/letsencrypt --agree-tos $email_opt   --renew-with-new-domains "${test_cert_opt}" -d "${cert}"
 done
 
 nginx -t

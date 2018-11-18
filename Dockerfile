@@ -14,6 +14,7 @@ VOLUME ["/etc/letsencrypt"]
 
 COPY nginx /etc/nginx
 COPY certbot.sh /
+COPY certbot-force-renew.sh /
 COPY entrypoint-docker.sh /
 
 CMD ["/entrypoint-docker.sh"]
